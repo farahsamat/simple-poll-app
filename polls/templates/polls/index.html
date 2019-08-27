@@ -3,3 +3,5 @@
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
 {% endfor %}
+
+<p><a href="{% url 'home' %}">Home</a></p>
