@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" />
 
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
   <p><a href="{% url 'polls:index' %}">Go to polls</a></p>
   <p><a href="{% url 'logout' %}">logout</a></p>
+  <p><a href="{% url 'password_reset' %}">reset password</a></p>
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <h1>Welcome to Simpolls</h1>
+  <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'accounts:signup' %}">sign up</a> to view polls</p>
 {% endif %}
 {% endblock %}
